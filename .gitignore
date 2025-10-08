@@ -1,0 +1,94 @@
+# DFCTS - Digital Forensic Crime Tracking System
+# Git Ignore File
+
+# PHP
+*.log
+*.tmp
+*.temp
+
+# Composer
+/vendor/
+composer.lock
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Database configuration (if using environment-specific configs)
+config/database.local.php
+
+# Upload files (keep directory structure but ignore uploaded content)
+uploads/*
+!uploads/.gitkeep
+
+# Cache files
+cache/*
+!cache/.gitkeep
+
+# Session files
+sessions/*
+!sessions/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+error.log
+access.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+tmp/*
+!tmp/.gitkeep
+
+# PHPMailer (if installed via Composer)
+/PHPMailer/
+
+# Node modules (if using any frontend build tools)
+node_modules/
+npm-debug.log*
+
+# Build files
+/dist/
+/build/
+
+# Configuration files with sensitive data
+includes/config.local.php
+includes/database.local.php
+
+# Coverage reports
+coverage/
+
+# PHPUnit
+.phpunit.result.cache
+
+# Sass
+.sass-cache/
+*.css.map
+
+# Asset build files
+/public/js/compiled/
+/public/css/compiled/
