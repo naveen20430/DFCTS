@@ -4,12 +4,33 @@ A comprehensive web-based system for managing forensic investigations across Him
 
 ## 🚀 Features
 
-- **Multi-Role Access**: Police Stations, Forensic Admin, and Lab Officers
-- **FIR Management**: Submit and track FIRs with forensic requirements
-- **Lab Assignment**: Automatic routing to SFSL Junga, RFSL Dharamshala, or RFSL Mandi
-- **Real-time Tracking**: Monitor case progress and status updates
-- **Email Notifications**: Automated alerts for important case updates
-- **Audit Logging**: Comprehensive system activity tracking
+### 👨‍💼 Admin Dashboard
+- **User Management**: Approve/reject police station registrations
+- **Case Assignment**: Assign forensic cases to officers
+- **Priority Management**: Set case priorities (low/medium/high/urgent)
+- **System Monitoring**: Real-time dashboard with statistics
+- **Audit Logging**: Complete activity tracking
+
+### 👮‍♂️ Police Dashboard  
+- **FIR Submission**: Submit cases requiring forensic analysis
+- **Case Tracking**: Monitor forensic case progress
+- **Lab Assignment**: Select appropriate forensic laboratories
+- **Report Download**: Access completed forensic reports
+- **Status Updates**: Real-time case status tracking
+
+### 🔬 Forensic Dashboard (NEW!)
+- **Case Management**: View assigned forensic cases
+- **Status Updates**: Update case progress and findings
+- **Report Generation**: Upload final forensic reports
+- **Lab Monitoring**: Track lab conditions and equipment
+- **Performance Metrics**: View completion rates and quality scores
+
+### 🛡️ Security Features
+- **Admin Approval System**: Police accounts require approval
+- **CSRF Protection**: All forms protected against attacks
+- **Role-based Access Control**: Admin, Police, Forensic roles
+- **Password Hashing**: bcrypt hashing for all passwords
+- **Session Management**: Secure session handling with timeouts
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 
 ## 🛠️ Technology Stack
@@ -29,7 +50,24 @@ A comprehensive web-based system for managing forensic investigations across Him
 
 ## 💾 Installation
 
-### 1. Database Setup
+### 🚀 Method 1: PHP Setup Scripts (Recommended)
+
+1. **Access Setup Interface**:
+   ```
+   http://localhost/dfcts/setup_index.php
+   ```
+
+2. **Run Setup Scripts** (3 clicks total):
+   - Step 1: **Setup Database** → Creates complete database structure
+   - Step 2: **Add Police Accounts** → Creates 19 police station accounts  
+   - Step 3: **Auto Approve** → Approves 3 test accounts (optional)
+
+3. **Start Testing**:
+   - Admin: `admin@dfcts.gov.in` / `password123`
+   - Police: `shimla.city@hppolice.gov.in` / `password123`
+   - Forensic: `rajesh@sfsl-junga.gov.in` / `password123`
+
+### 📜 Method 2: Manual Database Setup
 
 1. Create a MySQL database named `dfcts`:
 ```sql
@@ -39,6 +77,8 @@ CREATE DATABASE dfcts CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 2. Import the database schema:
 ```bash
 mysql -u your_username -p dfcts < database.sql
+mysql -u your_username -p dfcts < police_logins.sql  # Optional: Add police accounts
+mysql -u your_username -p dfcts < approve_test_accounts.sql  # Optional: Approve test accounts
 ```
 
 ### 2. Configuration
@@ -78,25 +118,26 @@ Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 The system comes with pre-configured accounts:
 
-### Admin Account
-- **Email**: admin@dfcts.gov.in
-- **Password**: password
-- **Role**: Forensic Admin
+### Default Admin
+- **Email**: `admin@dfcts.gov.in`
+- **Password**: `password123`
+- **Role**: System Administrator
 
-### Forensic Officers
-- **Dr. Rajesh Kumar** (SFSL Junga)
-  - Email: rajesh@sfsl-junga.gov.in
-  - Password: password
+### Forensic Officers (Pre-approved)
+- **SFSL Junga**: `rajesh@sfsl-junga.gov.in`
+- **RFSL Dharamshala**: `priya@rfsl-dharamshala.gov.in`  
+- **RFSL Mandi**: `amit@rfsl-mandi.gov.in`
+- **Password**: `password123` (for all)
 
-- **Dr. Priya Sharma** (RFSL Dharamshala)
-  - Email: priya@rfsl-dharamshala.gov.in
-  - Password: password
+### Police Stations (Pending Approval)
+- **19 stations** across Himachal Pradesh districts
+- **Status**: Pending admin approval (except 3 test accounts)
+- **Password**: `password123` (for all)
+- **Test Account**: `shimla.city@hppolice.gov.in`
 
-- **Dr. Amit Singh** (RFSL Mandi)
-  - Email: amit@rfsl-mandi.gov.in
-  - Password: password
+⚠️ **Important**: All police accounts require admin approval before login!
 
-⚠️ **Important**: Change default passwords in production!
+📚 **Documentation**: See [LOGIN_CREDENTIALS.txt](LOGIN_CREDENTIALS.txt) for complete account details
 
 ## 🔧 Configuration Options
 
